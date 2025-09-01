@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironbyte.tn - Solutions Digitales Premium | Développement Web & Mobile Tunisie</title>
+<meta name="description" content="Ironbyte.tn - Agence digitale premium en Tunisie. Développement web, applications mobiles, design UX/UI. Transformez votre vision en réalité digitale. ☎️ 54451627">
+<meta name="keywords" content="développement web tunisie, application mobile tunisie, design UX UI, transformation digitale, agence web tunis, ironbyte">
+<meta name="author" content="Ironbyte.tn">
+<meta property="og:title" content="Ironbyte.tn - Solutions Digitales Premium">
+<meta property="og:description" content="Agence digitale de référence en Tunisie. Développement web, apps mobiles, design UX/UI de haute qualité.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironbyte.tn">
+<link rel="canonical" href="https://ironbyte.tn">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --black: #000000;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2a2a2a;
+    --light-gray: #888888;
+    --white: #ffffff;
+    --accent: #888888;
+    --accent-dark: #ffffff ;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    --shadow-xl: 0 35px 80px -15px rgba(0, 0, 0, 0.9);
+    --glow: 0 0 30px rgba(0, 255, 136, 0.3);
+    --radius: 12px;
+    --radius-lg: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark-gray); }
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(180deg, var(--accent), var(--white));
+    border-radius: 3px;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: var(--shadow);
+    padding: 1rem 4rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    filter: brightness(1.1);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    background: var(--glass);
+    transform: translateY(-2px);
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+    overflow: hidden;
+}
+
+.grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
+    padding: 0 2rem;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -3px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero .highlight {
+    background: linear-gradient(135deg, var(--accent), var(--white));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.hero .subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.cta {
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    min-width: 200px;
+}
+
+.cta-primary {
+    background: var(--accent);
+    color: var(--black);
+    box-shadow: var(--glow);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.cta:hover {
+    transform: translateY(-3px);
+}
+
+.cta-primary:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
+}
+
+.cta-secondary:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* Stats Section */
+.stats {
+    padding: 6rem 4rem;
+    background: var(--dark-gray);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 2rem;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Services Section */
+#services {
+    padding: 8rem 4rem;
+    background: var(--black);
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    letter-spacing: -2px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    group: hover;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transition: left 0.8s ease;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-xl), var(--glow);
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.2) rotateY(360deg);
+    filter: drop-shadow(0 0 20px var(--accent));
+}
+
+.service-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.service-description {
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.service-features {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.service-features li::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Process Section */
+.process {
+    padding: 8rem 4rem;
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-step {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 auto 2rem;
+    box-shadow: var(--glow);
+}
+
+.step-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.step-description {
+    color: var(--light-gray);
+    line-height: 1.6;
+}
+
+/* Why Choose Us */
+.why-us {
+    padding: 8rem 4rem;
+    background: var(--black);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.why-content h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.why-content .highlight {
+    color: var(--accent);
+}
+
+.why-description {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+}
+
+.benefits {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: var(--accent);
+    transform: translateX(10px);
+}
+
+.benefit-icon {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.benefit-text h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.benefit-text p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.why-visual {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-orbit {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 2px solid var(--glass-border);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.tech-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--accent);
+    animation: counterRotate 20s linear infinite;
+}
+
+.tech-icon:nth-child(1) { top: -30px; left: 50%; transform: translateX(-50%); }
+.tech-icon:nth-child(2) { top: 50%; right: -30px; transform: translateY(-50%); }
+.tech-icon:nth-child(3) { bottom: -30px; left: 50%; transform: translateX(-50%); }
+.tech-icon:nth-child(4) { top: 50%; left: -30px; transform: translateY(-50%); }
+
+@keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes counterRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+
+/* Contact Section */
+#contact {
+    padding: 8rem 4rem;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+        var(--dark-gray);
+    position: relative;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+.contact-info h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.contact-info .highlight {
+    color: var(--accent);
+}
+
+.contact-description {
+    font-size: 1.3rem;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.contact-item:hover {
+    transform: translateX(15px);
+    background: rgba(0, 255, 136, 0.05);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.contact-text h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.contact-text p {
+    color: var(--light-gray);
+    font-size: 1rem;
+}
+
+.contact-form {
+    background: var(--glass);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--white), var(--accent));
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--glass-border);
+    border-radius: var(--radius);
+    color: var(--white);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--light-gray);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    border: none;
+    border-radius: var(--radius);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl), var(--glow);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Success Message */
+.success-message {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--black);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-top: 1rem;
+    animation: slideInUp 0.5s ease-out both;
+    font-weight: 600;
+    box-shadow: var(--glow);
+}
+
+/* CTA Banner */
+.cta-banner {
+    padding: 6rem 4rem;
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+}
+
+.cta-banner h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.cta-banner .highlight {
+    color: var(--accent);
+}
+
+.cta-banner p {
+    font-size: 1.3rem;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Scroll to Top */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    font-weight: bold;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--shadow-xl), var(--glow);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    header { padding: 1rem 2rem; }
+    section { padding: 6rem 2rem; }
+    .contact-container, .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .why-visual { height: 300px; }
+    .tech-orbit { width: 200px; height: 200px; }
+}
+
+@media (max-width: 768px) {
+    nav { gap: 1rem; }
+    nav a { padding: 0.6rem 1rem; font-size: 0.8rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .cta { width: 100%; max-width: 300px; }
+    .contact-form { padding: 2rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    header { padding: 1rem; }
+    section { padding: 4rem 1rem; }
+    .service-card { padding: 2rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="assets/logo.png" alt="Ironbyte Logo" class="logo-img">
+        <div class="logo-text">Ironbyte</div>
+    </div>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="grid-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="pulse-dot"></div>
+                <span>Disponible pour nouveaux projets</span>
+            </div>
+            <h1>Solutions Digitales <span class="highlight">Premium</span></h1>
+            <p class="subtitle">
+                Transformez votre vision en réalité digitale avec nos solutions technologiques de pointe. 
+                Développement web, applications mobiles et design d'exception.
+            </p>
+            <div class="hero-cta">
+                <button class="cta cta-primary" onclick="scrollToSection('#contact')">
+                    Démarrer Maintenant
+                </button>
+                <button class="cta cta-secondary" onclick="scrollToSection('#services')">
+                    Voir Nos Services
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats fade-in">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projets Réalisés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Années d'Expérience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Client</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Technique</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Nos <span style="color: var(--accent);">Expertises</span></h2>
+            <p class="section-subtitle">
+                Des solutions technologiques sur mesure qui propulsent votre entreprise vers le succès digital
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="service-title">Développement Web</h3>
+                <p class="service-description">
+                    Sites web modernes, performants et optimisés SEO. Nous créons des expériences web 
+                    qui convertissent vos visiteurs en clients.
+                </p>
+                <ul class="service-features">
+                    <li>Sites vitrine & e-commerce</li>
+                    <li>Applications web sur mesure</li>
+                    <li>Optimisation SEO & performance</li>
+                    <li>Responsive design mobile-first</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="service-title">Applications Mobiles</h3>
+                <p class="service-description">
+                    Apps natives iOS/Android et solutions cross-platform qui offrent une expérience 
+                    utilisateur exceptionnelle sur tous les appareils.
+                </p>
+                <ul class="service-features">
+                    <li>Applications natives iOS & Android</li>
+                    <li>Apps cross-platform (React Native)</li>
+                    <li>UI/UX design mobile optimisé</li>
+                    <li>Intégration API & services cloud</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="service-title">Design UX/UI</h3>
+                <p class="service-description">
+                    Designs captivants et interfaces intuitives qui reflètent votre marque et 
+                    optimisent l'expérience utilisateur.
+                </p>
+                <ul class="service-features">
+                    <li>Identité visuelle & branding</li>
+                    <li>Prototypage & wireframing</li>
+                    <li>Tests utilisateur & optimisation</li>
+                    <li>Design systems & guidelines</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="service-title">Transformation Digitale</h3>
+                <p class="service-description">
+                    Accompagnement stratégique complet pour digitaliser vos processus et 
+                    moderniser votre infrastructure technologique.
+                </p>
+                <ul class="service-features">
+                    <li>Audit digital & stratégie</li>
+                    <li>Automatisation des processus</li>
+                    <li>Migration vers le cloud</li>
+                    <li>Formation équipes</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">Sécurité & Maintenance</h3>
+                <p class="service-description">
+                    Protection de vos données et maintenance proactive pour garantir la sécurité 
+                    et la performance de vos solutions digitales.
+                </p>
+                <ul class="service-features">
+                    <li>Sécurisation des données</li>
+                    <li>Maintenance préventive</li>
+                    <li>Monitoring 24/7</li>
+                    <li>Sauvegardes automatiques</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="service-title">Analytics & Optimisation</h3>
+                <p class="service-description">
+                    Analyse de performance et optimisation continue pour maximiser votre ROI 
+                    et améliorer vos conversions.
+                </p>
+                <ul class="service-features">
+                    <li>Google Analytics & tracking</li>
+                    <li>A/B testing & optimisation</li>
+                    <li>Rapports de performance</li>
+                    <li>Conseils d'amélioration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Notre <span style="color: var(--accent);">Processus</span></h2>
+            <p class="section-subtitle">
+                Une méthodologie éprouvée qui garantit le succès de votre projet digital
+            </p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Analyse & Stratégie</h3>
+                <p class="step-description">
+                    Audit complet de vos besoins, définition des objectifs et élaboration 
+                    d'une stratégie digitale sur mesure.
+                </p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Design & Prototypage</h3>
+                <p class="step-description">
+                    Création de maquettes interactives et validation du design avant 
+                    le développement pour éviter toute surprise.
+                </p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Développement</h3>
+                <p class="step-description">
+                    Développement avec les meilleures pratiques, tests rigoureux et 
+                    optimisation continue des performances.
+                </p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Livraison & Support</h3>
+                <p class="step-description">
+                    Mise en ligne, formation de votre équipe et support technique 
+                    continu pour garantir votre succès.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us fade-in">
+        <div class="why-grid">
+            <div class="why-content">
+                <h2>Pourquoi Choisir <span class="highlight">Ironbyte</span> ?</h2>
+                <p class="why-description">
+                    Nous ne sommes pas juste une agence digitale. Nous sommes vos partenaires 
+                    technologiques qui transforment vos défis en opportunités de croissance.
+                </p>
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lightning-bolt"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h4>Livraison Rapide</h4>
+                            <p>Développement agile avec des délais respectés et une qualité irréprochable</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h4>Équipe Experte</h4>
+                            <p>Développeurs seniors et designers créatifs passionnés par l'innovation</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h4>Support 24/7</h4>
+                            <p>Assistance technique continue et maintenance proactive de vos solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="why-visual">
+                <div class="tech-orbit">
+                    <div class="tech-icon"><i class="fab fa-react"></i></div>
+                    <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                    <div class="tech-icon"><i class="fab fa-python"></i></div>
+                    <div class="tech-icon"><i class="fas fa-database"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Prêt à <span class="highlight">Commencer</span> ?</h2>
+                <p class="contact-description">
+                    Contactez-nous dès maintenant pour discuter de votre projet. 
+                    Consultation gratuite et devis personnalisé sous 24h.
+                </p>
+                
+                <div class="contact-details">
+                    <div class="contact-item" onclick="window.location.href='tel:+21654451627'">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Appelez-nous</h4>
+                            <p>+216 54 451 627</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" onclick="window.location.href='mailto:contact@ironbyte.tn'">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email Direct</h4>
+                            <p>contact@ironbyte.tn</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Notre Bureau</h4>
+                            <p>Tunis, Tunisie</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horaires</h4>
+                            <p>Lun-Sam 8h-20h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom Complet *</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+216 XX XXX XXX">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Type de Projet *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Sélectionnez un service</option>
+                        <option value="web">Développement Web</option>
+                        <option value="mobile">Application Mobile</option>
+                        <option value="design">Design UX/UI</option>
+                        <option value="ecommerce">Site E-commerce</option>
+                        <option value="transformation">Transformation Digitale</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Budget Estimé</label>
+                    <select id="budget" name="budget">
+                        <option value="">Sélectionnez votre budget</option>
+                        <option value="1000-5000">1 000 - 5 000 TND</option>
+                        <option value="5000-15000">5 000 - 15 000 TND</option>
+                        <option value="15000-30000">15 000 - 30 000 TND</option>
+                        <option value="30000+">30 000+ TND</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Décrivez Votre Projet *</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Parlez-nous de votre projet, vos objectifs et vos attentes..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Envoyer Ma Demande</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="cta-banner fade-in">
+        <h2>Prêt à <span class="highlight">Révolutionner</span> Votre Présence Digitale ?</h2>
+        <p>
+            Rejoignez plus de 50 entreprises qui nous font confiance pour leur transformation digitale. 
+            Consultation gratuite et devis personnalisé sous 24h.
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+            <button class="cta cta-primary" onclick="window.location.href='tel:+21654451627'">
+                <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+                Appeler Maintenant
+            </button>
+            <button class="cta cta-secondary" onclick="window.location.href='mailto:contact@ironbyte.tn'">
+                <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                Envoyer un Email
+            </button>
+        </div>
+    </section>
+</main>
+
+<button class="scroll-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+// Enhanced scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            // Animate stats numbers
+            if (entry.target.classList.contains('stats')) {
+                animateStats();
+            }
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+});
+
+// Stats animation
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => {
+        const finalNumber = stat.textContent;
+        const isPercent = finalNumber.includes('%');
+        const isTime = finalNumber.includes('/');
+        
+        if (!isTime) {
+            const numValue = parseInt(finalNumber.replace(/[^0-9]/g, ''));
+            let currentNumber = 0;
+            const increment = numValue / 50;
+            
+            const timer = setInterval(() => {
+                currentNumber += increment;
+                if (currentNumber >= numValue) {
+                    currentNumber = numValue;
+                    clearInterval(timer);
+                }
+                stat.textContent = Math.floor(currentNumber) + (isPercent ? '%' : '+');
+            }, 30);
+        }
+    });
+}
+
+// Header scroll effect
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Smooth scrolling
+function scrollToSection(selector) {
+    const target = document.querySelector(selector);
+    if (target) {
+        const offset = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+        e.preventDefault();
+        scrollToSection(anchor.getAttribute('href'));
+    });
+});
+
+// Scroll to top button
+const scrollBtn = document.querySelector('.scroll-top');
+window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 500);
+});
+
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Enhanced form handling
+const form = document.querySelector('.contact-form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    const btnText = btn.querySelector('.btn-text');
+    
+    // Show loading state
+    btn.classList.add('loading');
+    btn.disabled = true;
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Create success message
+    const existingMsg = form.querySelector('.success-message');
+    if (existingMsg) existingMsg.remove();
+    
+    const successMsg = document.createElement('div');
+    successMsg.className = 'success-message';
+    successMsg.innerHTML = `
+        <i class="fas fa-check-circle" style="margin-right: 0.5rem; font-size: 1.2rem;"></i>
+        <strong>Message envoyé avec succès !</strong><br>
+        Nous vous répondrons dans les plus brefs délais.
+    `;
+    
+    form.appendChild(successMsg);
+    form.reset();
+    
+    // Reset button
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    
+    // Remove success message after 5 seconds
+    setTimeout(() => successMsg.remove(), 5000);
+    
+    // Auto-scroll to success message
+    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+// Parallax effect for hero background
+document.addEventListener('mousemove', (e) => {
+    const mouseX = (e.clientX - window.innerWidth / 2) / 50;
+    const mouseY = (e.clientY - window.innerHeight / 2) / 50;
+    
+    const gridBg = document.querySelector('.grid-bg');
+    if (gridBg) {
+        gridBg.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    }
+});
+
+// Enhanced service card interactions
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.boxShadow = 'var(--shadow-xl), var(--glow)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.boxShadow = '';
+    });
+});
+
+// Contact item click handlers
+document.querySelectorAll('.contact-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.style.transform = 'translateX(20px) scale(1.02)';
+        setTimeout(() => {
+            item.style.transform = '';
+        }, 200);
+    });
+});
+
+// Typing effect for hero subtitle
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.textContent = '';
+    element.style.borderRight = '2px solid var(--accent)';
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            setTimeout(() => {
+                element.style.borderRight = 'none';
+            }, 500);
+        }
+    }
+    type();
+}
+
+// Initialize typing effect after page load
+window.addEventListener('load', () => {
+    const subtitle = document.querySelector('.hero .subtitle');
+    const originalText = subtitle.textContent;
+    setTimeout(() => {
+        typeWriter(subtitle, originalText, 30);
+    }, 1000);
+});
+
+// Add floating elements animation
+function createFloatingElements() {
+    const hero = document.querySelector('.hero');
+    for (let i = 0; i < 15; i++) {
+        const element = document.createElement('div');
+        element.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 4 + 2}px;
+            height: ${Math.random() * 4 + 2}px;
+            background: var(--accent);
+            border-radius: 50%;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            opacity: ${Math.random() * 0.5 + 0.1};
+            animation: float ${Math.random() * 10 + 15}s linear infinite;
+            pointer-events: none;
+        `;
+        hero.appendChild(element);
+    }
+}
+
+// Initialize floating elements
+createFloatingElements();
+
+// Add CSS animation for floating elements
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10%, 90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) translateX(${Math.random() * 200 - 100}px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Performance optimization
+document.addEventListener('DOMContentLoaded', () => {
+    // Preload critical images
+    const logo = new Image();
+    logo.src = 'assets/logo.png';
+    
+    // Lazy load non-critical animations
+    setTimeout(() => {
+        document.body.classList.add('animations-loaded');
+    }, 100);
+});
+
+// Add structured data for SEO
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ironbyte.tn",
+    "url": "https://ironbyte.tn",
+    "logo": "https://ironbyte.tn/assets/logo.png",
+    "description": "Agence digitale premium en Tunisie spécialisée dans le développement web, applications mobiles et design UX/UI",
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TN",
+        "addressRegion": "Tunis"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+216-54-451-627",
+        "email": "contact@ironbyte.tn",
+        "contactType": "customer service"
+    },
+    "sameAs": [
+        "https://ironbyte.tn"
+    ]
+};
+
+const script = document.createElement('script');
+script.type = 'application/ld+json';
+script.textContent = JSON.stringify(structuredData);
+document.head.appendChild(script);
+</script>
+
+</body>
+</html>
